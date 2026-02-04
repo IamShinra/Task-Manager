@@ -2,7 +2,10 @@ import axios from "axios";
 
 const api = axios.create({
   // baseURL: "/api",
-    baseURL: "http://localhost:5001/api",
-        // baseURL: "https://task-manager-5y85.onrender.com/api",
+    // baseURL: "https://task-manager-17d1.onrender.com/api",
+      baseURL: process.env.REACT_APP_API_URL || "http://localhost:5001/api",
+      //updating for both production and local lvl
+
+    
 });
 export default api;
