@@ -18,9 +18,16 @@ app.use(cors({
 }));
 
 /* MongoDB */
-mongoose.connect(process.env.MONGODB_URL, err => {
-  if (err) throw err;
-  console.log("MongoDB connected...");
+mongoose.connect(process.env.MONGODB_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  tls: true,                   // enable TLS/SSL
+  tlsAllowInvalidCertificates: false // optional: strict SSL
+})
+.then(() => console.log("MongoDB connected"))
+.catch(err => {
+  console.error("MongoDB connection failed:", err.message);
+  process.exit(1);
 });
 
 /* Routes */
