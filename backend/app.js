@@ -12,7 +12,7 @@ const app = express();
 /* Middleware */
 app.use(express.json());
 app.use(cors({
-  origin: "https://mern-task-manager-frontend.onrender.com",
+  origin: "https://task-manager-1-aoss.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
